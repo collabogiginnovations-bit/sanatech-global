@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+
+/* UseScrollEffect Hook css */
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+/* Animated state */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+a.active{
+  background-color: rgb(0, 30, 165);
+  color: white;
+  font-weight: bold;
+}
+a.active:hover{
+  background-color: rgb(14, 54, 231);
+  color: white;
+}
+
+
+
