@@ -126,7 +126,7 @@ const Home = ({
                 </p>
             </div>
 
-            <div className='bg-[rgb(15,8,43)] flex flex-wrap justify-center min-h-96 py-5 mb-24 section'>
+            <div className='bg-[rgb(15,8,43)] flex flex-col flex-wrap justify-center items-center gap-8  min-h-96 py-5 mb-24 section'>
                 <div>
                     <h3 className="text-white text-xl md:text-2xl font-bold">
                         Our Core Values

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
+import CTASection from "../morrisco/CTASection";
 
 const ServiceTemplate = ({
   service,
@@ -87,14 +88,14 @@ const ServiceTemplate = ({
             </div>
             <ul className={`flex flex-col gap-5 max-w-[600px] pl-5 transition-all duration-500 ease-in-out overflow-hidden list-disc ${collapse ? "min-h-screen" : "max-h-screen"}`}>
               {capabilities.map((item, index) => (
-                <li key={index}><p className="font-semibold inline">{item.subHeading}</p>
+                <li key={index}><p className="font-semibold inline text-xl">{item.subHeading}</p>
                   {item.item}
                   <div className={`justify-center mt-3 ${service === "Skill Training" ? "flex" : "hidden"}`}>
                     <ul className={`flex-col list-disc ml-5 ${item.subHeading === "Flexible Delivery Options: " ? "flex" : "hidden"}`}>
                       {
                         nestedList.map((list, index) => {
                           return (
-                            <li key={index}><p className="font-semibold inline">{list.subHeading}</p>{list.item}</li>
+                            <li key={index}><p className="font-semibold inline ">{list.subHeading}</p>{list.item}</li>
                           )
                         })
                       }

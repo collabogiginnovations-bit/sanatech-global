@@ -1,20 +1,23 @@
 import React from 'react'
 import PageTitleCard from '../components/morrisco/PageTitleCard'
 import ServiceCard from '../components/mazi/ServiceCard'
-import {useNavigate} from "react-router-dom"
 import {
-  FaHardHat,
-  FaBolt,
-  FaTruckMoving,
-  FaCogs,
-  FaSatelliteDish,
-  FaSolarPanel
+    FaHardHat,
+    FaBolt,
+    FaTruckMoving,
+    FaCogs,
+    FaSatelliteDish,
+    FaSolarPanel
 } from "react-icons/fa";
 import { GiOilDrum, GiCargoCrate, GiCrane } from "react-icons/gi";
 import CTASection from '../components/morrisco/CTASection';
 
 const Services = () => {
-    const navigate = useNavigate()
+    const cycleImages = [
+        "service/cranes.jpg",
+        "service/mechanical.jpg",
+        "service/solar.jpg",
+    ];
 
     const services = [
         {
@@ -29,42 +32,42 @@ const Services = () => {
             title: "Solar Renewable Energy Services",
             description:
                 "Delivering sustainable solar energy solutions for cleaner power.",
-            link: "/building-and-civil-engineering",
+            link: "solar",
         },
         {
             icon: <FaSatelliteDish />,
             title: "Communication Services",
             description:
                 "Ensuring seamless communication through modern, innovative connectivity solutions.",
-            link: "/environmental-management",
+            link: "communication",
         },
         {
             icon: <FaTruckMoving />,
             title: "Leasing/Ancillary Services",
             description:
                 "Offering equipment leasing and support services for diverse projects.",
-            link: "/skill-training",
+            link: "Leasing&Ancillary",
         },
         {
             icon: <FaCogs />,
             title: "Mechanical Services",
             description:
                 "Delivering reliable mechanical engineering, repair, and maintenance services",
-            link: "/project-management",
+            link: "mechanical",
         },
         {
             icon: <FaBolt />,
             title: "Electrical Services",
             description:
                 "Providing expert electrical installation, maintenance, and power solutions.",
-            link: "/petroleum-products",
+            link: "electrical",
         },
-      
+
     ];
     return (
         <section>
             <div className='bg-blue-900'>
-                <PageTitleCard cardTitle={"Our Services"} />
+                <PageTitleCard cardTitle={"Our Services"} cycleImages={cycleImages} />
             </div>
             <div>
                 <section className="my-24 text-center px-10 sm:px-10 md:px-16 lg:px-32 section">
@@ -74,7 +77,7 @@ const Services = () => {
                 </section>
 
                 <section className="mb-24">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 gap-2" onClick={()=> navigate(services.link)}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 gap-2" >
                         {services.map((service, index) => {
                             return (
                                 <ServiceCard

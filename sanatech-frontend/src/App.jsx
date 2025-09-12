@@ -3,24 +3,39 @@ import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} fr
 
 import './App.css'
 import RootLayout from './layouts/RootLayout';
-import Home from './pages/home';
-import Services from './pages/Services';
+import Home from './pages/Home';
 import About from './pages/about';
 import Policies from './pages/policies';
 import Contact from './pages/contact';
 import CivilWorks from './pages/Services/CivilEng';
+import Solar from './pages/Services/Solar';
+import ServiceLayout from './layouts/ServiceLayout';
+import Services from './pages/Services';
+import NotFound from './pages/NotFound';
+import Communication from './pages/Services/Communication';
+import Leasing from './pages/Services/Leasing';
+import Mechanic from './pages/Services/Mechanic';
+import Electrical from './pages/Services/Electrical';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout />} >
         <Route index element={<Home />} />
-        <Route path='services' element={<Services />}>
+        <Route path='services' element={<ServiceLayout />}>
+          <Route index element={<Services />} />
           <Route path='civil' element={<CivilWorks /> } />
+          <Route path='solar' element = {<Solar />} />
+          <Route path='communication' element = {<Communication />} />
+          <Route path='Leasing&Ancillary' element = {<Leasing />} />
+          <Route path='mechanical' element = {<Mechanic />} />
+          <Route path='electrical' element = {<Electrical />} />
+
         </Route>
         <Route path='about' element={<About />} />
         <Route path='policies' element={<Policies />} />
         <Route path='contact' element={<Contact />} />
+        <Route path='*' element={<NotFound />} />
         
       
       </Route>

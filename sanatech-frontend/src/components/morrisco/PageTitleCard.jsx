@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PageTitleCard = ({
   firstImage = "spinninigGear2-removebg-preview.png",
@@ -7,7 +7,31 @@ const PageTitleCard = ({
   cardTitle,
   cardText,
   textColor = "text-white",
+  cycleImages
 }) => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startCycle, setStartCycle] = useState(false);
+
+  // Start cycling 6s after mount (3s first + 3s second animation)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartCycle(true);
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle background change every 10s
+  useEffect(() => {
+    if (!startCycle) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % cycleImages.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [startCycle]);
+
   return (
     <section className="h-96 px-4 border w-full border-none overflow-hidden relative">
       {/* First Image - spins in and then fades away */}
@@ -29,7 +53,7 @@ const PageTitleCard = ({
           height: "100%",
           borderRadius: "0%",
           scale: 1,
-          rotate: 720, // slower but full spin (2 rotations)
+          rotate: 720,
           opacity: 0,
         }}
         transition={{
@@ -48,37 +72,65 @@ const PageTitleCard = ({
         }}
       />
 
-      {/* Second Image - pops in as first fades out, then opacity lowers */}
-      <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.5,
-          rotate: -180,
-        }}
-        animate={{
-          opacity: [0, 1, 0.6], // fades in, then reduces opacity
-          scale: 1,
-          rotate: 0,
-        }}
-        transition={{
-          delay: 1.5, // starts after first image mid-animation
-          duration: 3,
-          ease: "easeOut",
-          times: [0, 0.7, 1], // controls when opacity changes happen
-        }}
-        style={{
-          backgroundImage: `url('images/${secondImage}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 1,
-        }}
-      />
+      {/* Second Image - only visible before cycle starts */}
+      {!startCycle && (
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.5,
+            rotate: -180,
+          }}
+          animate={{
+            opacity: [0, 1, 0.6],
+            scale: 1,
+            rotate: 0,
+          }}
+          transition={{
+            delay: 1.5,
+            duration: 3,
+            ease: "easeOut",
+            times: [0, 0.7, 1],
+          }}
+          style={{
+            backgroundImage: `url('images/${secondImage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        />
+      )}
+
+      {/* Dynamic Background after animations */}
+      {startCycle && (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "-100%", opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{
+              backgroundImage: `url('${cycleImages[currentIndex]}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: 0,
+              opacity:"0.7"
+            }}
+          />
+        </AnimatePresence>
+      )}
 
       {/* Text Content */}
       <div
@@ -87,7 +139,7 @@ const PageTitleCard = ({
         <h1 className="text-5xl font-extrabold sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl">
           {cardTitle}
         </h1>
-        <p className="text-lg flex flex-wrap w-80">{cardText}</p>
+        <p className="text-lg flex flex-wrap  pr-5">{cardText}</p>
       </div>
     </section>
   );
