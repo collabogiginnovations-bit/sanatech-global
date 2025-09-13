@@ -64,8 +64,6 @@ const About = () => {
             <div className='m-2 h-56 sm:h-64 md:h-72 lg:max-h-full rounded-xl bg-transparent lg:m-5 ' style={{ backgroundImage: "url('images/Rectangle 22.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >
 
             </div>
-
-
           </div>
 
         </div>

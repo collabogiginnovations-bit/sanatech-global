@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed grid w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 top-0 px-2.5 z-50 transition-colors duration-300 ${
+      className={`fixed grid w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 top-0 px-2.5 z-30 transition-colors duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 
 import './App.css'
 import RootLayout from './layouts/RootLayout';
@@ -16,36 +16,60 @@ import Communication from './pages/Services/Communication';
 import Leasing from './pages/Services/Leasing';
 import Mechanic from './pages/Services/Mechanic';
 import Electrical from './pages/Services/Electrical';
+import AdminLogin from './pages/admin/AdminLogin';
+import RequireAdmin from './components/morrisco/RequireAdmin';
+import AdminLayout from './layouts/AdminLayout';
+import EditService from './pages/admin/dashboard/EditService';
+import AdminHome from './pages/admin/dashboard/AdminHome';
+
+
+
+const adminPath = import.meta.env.VITE_ADMIN_PATH?.replace(/^\//, '') || 'admin-very-secret';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<RootLayout />} >
-        <Route index element={<Home />} />
-        <Route path='services' element={<ServiceLayout />}>
-          <Route index element={<Services />} />
-          <Route path='civil' element={<CivilWorks /> } />
-          <Route path='solar' element = {<Solar />} />
-          <Route path='communication' element = {<Communication />} />
-          <Route path='Leasing&Ancillary' element = {<Leasing />} />
-          <Route path='mechanical' element = {<Mechanic />} />
-          <Route path='electrical' element = {<Electrical />} />
+      <Route>
+        <Route path='/' element={<RootLayout />} >
+          <Route index element={<Home />} />
+          <Route path='services' element={<ServiceLayout />}>
+            <Route index element={<Services />} />
+            <Route path='civil' element={<CivilWorks />} />
+            <Route path='solar' element={<Solar />} />
+            <Route path='communication' element={<Communication />} />
+            <Route path='Leasing&Ancillary' element={<Leasing />} />
+            <Route path='mechanical' element={<Mechanic />} />
+            <Route path='electrical' element={<Electrical />} />
+
+          </Route>
+          <Route path='about' element={<About />} />
+          <Route path='policies' element={<Policies />} />
+          <Route path='contact' element={<Contact />} />
+
+
+
+
+          <Route path='*' element={<NotFound />} />
+
 
         </Route>
-        <Route path='about' element={<About />} />
-        <Route path='policies' element={<Policies />} />
-        <Route path='contact' element={<Contact />} />
-        <Route path='*' element={<NotFound />} />
-        
-      
+
+
+        <Route path="admin" element={<AdminLayout />}>
+          <Route index element={<AdminLogin />} />
+          <Route path="dashboard" element={<AdminHome />} />
+          <Route path="edit" element={<EditService />} />
+        </Route>
+
       </Route>
+
     )
   )
 
   return (
     <RouterProvider router={router} />
-    
- 
+
+
   )
 }
 
