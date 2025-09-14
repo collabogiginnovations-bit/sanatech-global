@@ -41,7 +41,7 @@ const Leasing = () => {
     <ServiceTemplate
       service="Leasing/Ancillary Services"
       description="Offering equipment leasing and support services for diverse projects."
-      imgSrc="/service/cranes.jpg"
+      imgSrc="/service/Equipmemt leasing 3.jpg"
       capabilities={items}
       link="#"
       subHeading={items}

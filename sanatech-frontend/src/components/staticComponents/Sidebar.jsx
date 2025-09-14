@@ -10,9 +10,15 @@ import {
 } from "react-icons/fa";
 
 const Sidebar = ({ collapsed, setCollapsed }) => {
+  
+  const HandleLogout = ()=>{
+    sessionStorage.removeItem("token");
+    window.location.reload()
+  }
+
   const navItems = [
-    { to: "/admin/dashboard", label: "Home", icon: <FaHome /> },
-    { to: "/admin/edit", label: "Edit Service", icon: <FaEdit /> },
+    { to: "/admin/hidedashboard", label: "Home", icon: <FaHome /> },
+    { to: "/admin/hidedashboard/edit", label: "Edit Service", icon: <FaEdit /> },
   ];
 
   return (
@@ -40,6 +46,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
             <li key={it.to}>
               <NavLink
                 to={it.to}
+                end = {it.to === "/admin/hidedashboard"}
                 className={({ isActive }) =>
                   `flex items-center gap-3 p-3 transition rounded-md hover:bg-[#361d91]   text-white font-semibold 
                   ${isActive ? "bg-amber-600  font-semibold hover:bg-amber-700" : "text-gray-700"}`
@@ -55,7 +62,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
       {/* Footer Logout */}
       <div className="absolute bottom-0 left-0 w-full border-t p-4">
-        <button className="w-full flex items-center gap-3 p-3 rounded-md hover:bg-[#361d91] text-amber-500 font-semibold text-lg transition-colors duration-300 ease-in">
+        <button onClick={HandleLogout} className="w-full flex items-center cursor-pointer gap-3 p-3 rounded-md hover:bg-[#361d91] text-amber-500 font-semibold text-lg transition-colors duration-300 ease-in">
           <span className="text-xl">
             <FaSignOutAlt />
           </span>

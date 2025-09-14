@@ -29,7 +29,7 @@ const Solar = () => {
         <ServiceTemplate
             service="Solar Renewable Energy Services"
             description="Delivering sustainable solar energy solutions for cleaner power."
-            imgSrc="/service/solar.jpg"
+            imgSrc="/service/Solar Panel installation.jpg"
             capabilities={items}
             link="#"
             subHeading={items}

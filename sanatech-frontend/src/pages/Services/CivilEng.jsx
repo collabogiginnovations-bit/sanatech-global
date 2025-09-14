@@ -37,7 +37,7 @@ const CivilWorks = () => {
     <ServiceTemplate
       service="Civil Engineering Services"
       description="Providing quality civil works, construction, and infrastructure development."
-      imgSrc="/service/house.jpg"
+      imgSrc="/service/Structure beginging finishing .jpg"
       capabilities={items}
       link="#"
       subHeading={items}

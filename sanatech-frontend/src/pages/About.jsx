@@ -6,7 +6,8 @@ import CTASection from '../components/morrisco/CTASection';
 
 const About = () => {
   const cycleImages = [
-    "images/fourEngs.jpg",
+    "images/companyImages/IMG-20250527-WA0025.jpg",
+    "images/companyImages/Valves control I&C.jpg",
     "service/cctv.jpg",
     "service/solar.jpg",
   ];

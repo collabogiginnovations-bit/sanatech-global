@@ -45,7 +45,7 @@ const Electrical = () => {
     <ServiceTemplate
       service="Electrical Services"
       description="Providing expert electrical installation, maintenance, and power solutions."
-      imgSrc="/service/electrician.jpg"
+      imgSrc="/service/Trouble Shooting Electrical system.jpg"
       capabilities={items}
       link="#"
       subHeading={items}

@@ -41,7 +41,7 @@ const Mechanic = () => {
     <ServiceTemplate
       service="Mechanical Services"
       description="Delivering reliable mechanical engineering, repair, and maintenance services"
-      imgSrc="/service/mechanical.jpg"
+      imgSrc="/service/a1d9b08b62884d06b7c1198fea88ab80.jpg"
       capabilities={items}
       link="#"
       subHeading={items}

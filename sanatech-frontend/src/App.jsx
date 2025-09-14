@@ -4,7 +4,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import './App.css'
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
-import About from './pages/about';
+import About from './pages/About';
 import Policies from './pages/policies';
 import Contact from './pages/contact';
 import CivilWorks from './pages/Services/CivilEng';
@@ -17,10 +17,10 @@ import Leasing from './pages/Services/Leasing';
 import Mechanic from './pages/Services/Mechanic';
 import Electrical from './pages/Services/Electrical';
 import AdminLogin from './pages/admin/AdminLogin';
-import RequireAdmin from './components/morrisco/RequireAdmin';
 import AdminLayout from './layouts/AdminLayout';
 import EditService from './pages/admin/dashboard/EditService';
 import AdminHome from './pages/admin/dashboard/AdminHome';
+import HideDashboard from './pages/admin/dashboard/HideDashboard';
 
 
 
@@ -54,11 +54,12 @@ function App() {
 
         </Route>
 
-
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminLogin />} />
-          <Route path="dashboard" element={<AdminHome />} />
-          <Route path="edit" element={<EditService />} />
+          <Route path="hidedashboard" element={<HideDashboard />}>
+            <Route index element={<AdminHome />} />
+            <Route path="edit" element={<EditService />} />
+          </Route>
         </Route>
 
       </Route>

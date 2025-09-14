@@ -1,12 +1,14 @@
 import React from 'react'
 import PageTitleCard from '../components/morrisco/PageTitleCard'
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import CTASection from '../components/morrisco/CTASection';
 
 const Policies = () => {
   useScrollAnimation()
   const cycleImages = [
     "images/policies3.jpg",
     "images/policies2.jpeg",
+    "images/companyImages/Structure beginging finishing .jpg",
   ];
 
   return (
@@ -100,6 +102,8 @@ const Policies = () => {
           </div>
         </div>
       </div>
+
+      <CTASection />
     </div>
   )
 }

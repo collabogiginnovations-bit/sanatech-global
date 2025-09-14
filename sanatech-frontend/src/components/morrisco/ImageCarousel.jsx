@@ -4,35 +4,41 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 
 const ImageCarousel = () => {
-  useScrollAnimation()
+  useScrollAnimation();
+
   const images = [
-    { src: "/images/test/civil work.jpeg", caption: "Installation of CCTV Security System at Kilimanjaro Fast Food, Woji Port Harcourt." },
-    { src: "/images/test/building.avif", caption: "Air Compressor Maintenance at ELCREST Exploration ltd. & NNPC. at Otumara, Delta State." },
-    { src: "/images/test/Environmental Management3.jpeg", caption: "Installation of 500KVA Substation at AirLiquide Nig. PLC. Lagos." },
-    { src: "/images/test/Skill Training.jpg", caption: "Installation/Commissioning of ARGON Refilling Plant at NLNG Train 7 Bonny Island" },
-    { src: "/images/test/Project Management.webp", caption: "Construction of 5 Bed Room Duplex at Umuahia, Abia State." },
-    { src: "/images/test/Petroleum Products2.jpeg", caption: "Installation of 20KVA Solar Inverter Power Supply at D-Villa Hotel, Port Harcourt " },
-    { src: "/images/test/Property Investment.jpeg", caption: "Property Investment" },
-    { src: "/images/test/Import & Export.jpeg", caption: "Import and Export" },
+    { src: "/images/companyImages/Equipmemt leasing 3.jpg", caption: "Equipmemt leasing" },
+    { src: "/images/companyImages/Equipmemt leasing.jpg", caption: "Equipmemt leasing" },
+    { src: "/images/companyImages/Water Treatment plant 3.jpg", caption: "Water Treatment plant" },
+    { src: "/images/companyImages/IMG-20250527-WA0025.jpg", caption: "Equipmemt leasing" },
+    { src: "/images/companyImages/IMG-20250527-WA0021.jpg", caption: "Equipmemt leasing" },
+    { src: "/images/companyImages/Water Treatment plant 7.jpg", caption: "Water Treatement" },
+    { src: "/images/companyImages/IMG-20250527-WA0027.jpg", caption: "Water Treatement" },
+    { src: "/images/companyImages/Trouble Shooting Electrical system.jpg", caption: "Trouble Shooting Electrical system " },
+    { src: "/images/companyImages/WhatsApp Image 2025-06-02 at 20.36.31_ea91d944.jpg", caption: "Trouble Shooting Electrical system" },
+    { src: "/images/companyImages/Tank Support under bore hold.jpg", caption: "Tank Support under bore hold" },
+    { src: "/images/companyImages/WhatsApp Image 2025-05-27 at 13.36.59_c3842973.jpg", caption: "Equipmemt leasing" },
+    { src: "/images/companyImages/Tank Support under bore hold 2.jpg", caption: "Tank Support under bore hold" },
+    { src: "/images/companyImages/Structure beginging finishing .jpg", caption: "Property Investment" },
+    { src: "/images/companyImages/Valves control I&C.jpg", caption: "Valves control I&C" },
+    { src: "/images/companyImages/Maintenance work 1.jpg", caption: "Maintenance work" },
+    { src: "/images/companyImages/Solar Panel installation.jpg", caption: "Solar Panel installation" },
+    { src: "/images/companyImages/Solar Inverter Installation.jpg", caption: "Solar Inverter Installation" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
+    setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   return (
     <div className="relative w-full flex flex-col items-center overflow-hidden section">
-      {/* Image Carousel */}
+      {/* Carousel */}
       <div className="relative flex items-center justify-center w-full h-96">
         {/* Left Arrow */}
         <button
@@ -45,6 +51,14 @@ const ImageCarousel = () => {
         {/* Images */}
         <div className="relative w-full flex justify-center items-center">
           {images.map((item, index) => {
+            const offset = index - activeIndex;
+
+            // Wrap around logic
+            const half = Math.floor(images.length / 2);
+            let position = offset;
+            if (offset > half) position -= images.length;
+            if (offset < -half) position += images.length;
+
             const isActive = index === activeIndex;
 
             return (
@@ -53,12 +67,12 @@ const ImageCarousel = () => {
                 src={item.src}
                 alt={`Gallery ${index}`}
                 className={`absolute transition-all duration-500 rounded-xl shadow-lg
-                  ${isActive
-                    ? "w-80 h-80 z-20 scale-100"
-                    : "w-64 h-64 z-10 scale-75 opacity-50"
-                  }`}
+                  ${isActive ? "z-20 scale-100 opacity-100" : "z-10 scale-75 opacity-50"}
+                `}
                 style={{
-                  transform: `translateX(${(index - activeIndex) * 100}px)`,
+                  transform: `translateX(${position * 220}px) scale(${isActive ? 1 : 0.75})`,
+                  width: isActive ? "20rem" : "16rem",
+                  height: isActive ? "20rem" : "16rem",
                 }}
               />
             );
@@ -68,18 +82,18 @@ const ImageCarousel = () => {
         {/* Right Arrow */}
         <button
           onClick={handleNext}
-          className="absolute right-5 z-20 text-white bg-black/50 p-2 rounded-full"
+          className="absolute right-5 z-40 text-white bg-black/50 p-2 rounded-full"
         >
           <FaChevronRight size={20} />
         </button>
       </div>
 
       {/* Caption */}
-      <p className="mt-4 w-80  font-medium text-gray-700 text-center">
+      <p className="mt-4 w-80 font-medium text-gray-700 text-center">
         {images[activeIndex].caption}
       </p>
 
-      {/* Dots Indicator */}
+      {/* Dots */}
       <div className="flex mt-4 gap-2">
         {images.map((_, index) => (
           <span

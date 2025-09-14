@@ -37,7 +37,7 @@ const CTASection = () => {
         </div>
 
         <div className="absolute flex justify-center items-center z-50">
-          <Button text="Contact Us" arrow={true} />
+          <Button text="Contact Us" arrow={true} link="/contact" />
         </div>
       </div>
     </div>

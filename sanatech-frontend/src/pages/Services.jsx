@@ -14,9 +14,10 @@ import CTASection from '../components/morrisco/CTASection';
 
 const Services = () => {
     const cycleImages = [
-        "service/cranes.jpg",
-        "service/mechanical.jpg",
-        "service/solar.jpg",
+        "service/Equipmemt leasing 3.jpg",
+        "service/Structure beginging finishing .jpg",
+        "service/Solar Inverter Installation.jpg",
+        "service/WhatsApp Image 2025-06-02 at 20.36.31_ea91d944.jpg",
     ];
 
     const services = [

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PageTitleCard from '../components/morrisco/PageTitleCard'
 import Button from '../components/morrisco/Button'
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CoreValueCard from '../components/morrisco/CoreValueCard';
 import ClientCarousel from '../components/morrisco/ClientCarousel';
 import ImageCarousel from '../components/morrisco/ImageCarousel';
@@ -14,6 +14,37 @@ const Home = ({
     secondImage = "images.jpeg"
 }) => {
     useScrollAnimation()
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [startCycle, setStartCycle] = useState(false);
+    const cycleImages = [
+        "images/companyImages/Structure beginging finishing .jpg",
+        "images/companyImages/Equipmemt leasing.jpg",
+        "images/companyImages/WhatsApp Image 2025-05-27 at 13.36.59_c3842973.jpg",
+        "images/companyImages/Solar Panel installation.jpg",
+    ];
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setStartCycle(true);
+        }, 6000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Handle background change every 10s
+    useEffect(() => {
+        if (!startCycle) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % cycleImages.length);
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, [startCycle]);
+
+
+
     return (
         <>
             <div
@@ -57,36 +88,63 @@ const Home = ({
                 />
 
                 {/* Second Image - pops in as first fades out, then opacity lowers */}
-                <motion.div
-                    initial={{
-                        opacity: 0,
-                        scale: 0.5,
-                        rotate: -180,
-                    }}
-                    animate={{
-                        opacity: [0, 1, 0.6], // fades in, then reduces opacity
-                        scale: 1,
-                        rotate: 0,
-                    }}
-                    transition={{
-                        delay: 1.5, // starts after first image mid-animation
-                        duration: 3,
-                        ease: "easeOut",
-                        times: [0, 0.7, 1], // controls when opacity changes happen
-                    }}
-                    style={{
-                        backgroundImage: `url('images/${secondImage}')`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        zIndex: 1,
-                    }}
-                />
+                {!startCycle && (
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            scale: 0.5,
+                            rotate: -180,
+                        }}
+                        animate={{
+                            opacity: [0, 1, 0.6],
+                            scale: 1,
+                            rotate: 0,
+                        }}
+                        transition={{
+                            delay: 1.5,
+                            duration: 3,
+                            ease: "easeOut",
+                            times: [0, 0.7, 1],
+                        }}
+                        style={{
+                            backgroundImage: `url('images/${secondImage}')`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            zIndex: 1,
+                        }}
+                    />
+                )}
+
+                {startCycle && (
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ x: "100%", opacity: 0 }}
+                            animate={{ x: 0, opacity: 0.5 }}
+                            exit={{ x: "-100%", opacity: 0 }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            style={{
+                                backgroundImage: `url('${cycleImages[currentIndex]}')`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                zIndex: 0,
+                            }}
+                        />
+                    </AnimatePresence>
+                )}
+
                 <div
                     className="hero-clip relative z-10  md:bg-transparent h-fit bg-img items-center px-5 pt-20 flex flex-col md:flex-row justify-between bg-no-repeat bg-right-bottom bg-contain"
                     style={{}}
@@ -103,7 +161,7 @@ const Home = ({
 
                     <div className="h-full  items-end flex gap-5">
                         <div className="flex gap-5">
-                            <Button text={"Learn More"} arrow={true} />
+                            <Button text={"Learn More"} arrow={true} link='/about' />
                         </div>
                         <div className="flex gap-5">
                             <Button text={"Contact Us"} />
@@ -155,3 +213,4 @@ const Home = ({
 }
 
 export default Home
+

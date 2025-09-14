@@ -24,103 +24,62 @@ const AdminHome = () => {
       message: "I’m having trouble accessing my account. Can you assist?",
     },
     {
-      id: 3,
+      id: 4,
+      name: "John Doe",
+      email: "john@example.com",
+      subject: "Service Inquiry",
+      message: "I would like to know more about your solar installation service.",
+    },
+    {
+      id: 5,
+      name: "John Doe",
+      email: "john@example.com",
+      subject: "Service Inquiry",
+      message: "I would like to know more about your solar installation service.",
+    },
+    {
+      id: 6,
       name: "Michael Johnson",
       email: "michael@example.com",
       subject: "Support Needed",
       message: "I’m having trouble accessing my account. Can you assist?",
     },
     {
-      id: 3,
+      id: 7,
       name: "Michael Johnson",
       email: "michael@example.com",
       subject: "Support Needed",
       message: "I’m having trouble accessing my account. Can you assist?",
     },
     {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
+      id: 8,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      subject: "Job Application",
+      message: "I am interested in applying for an engineering role at Sanatech.",
     },
     {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
+      id: 9,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      subject: "Job Application",
+      message: "I am interested in applying for an engineering role at Sanatech.",
     },
     {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
+      id: 10,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      subject: "Job Application",
+      message: "I am interested in applying for an engineering role at Sanatech.",
     },
     {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
+      id: 11,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      subject: "Job Application",
+      message: "I am interested in applying for an engineering role at Sanatech.",
     },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist? ",
-    },
+
   ];
 
   return (
@@ -139,9 +98,9 @@ const AdminHome = () => {
           </thead>
           <tbody>
             {messages.map((msg) => (
-              <tr key={msg.id} className="hover:bg-[#29166F] hover:text-white">
+              <tr key={msg.id} className="hover:bg-[#29166F] hover:text-white transition-colors duration-100 ease-in">
                 <td className="p-3 border font-medium">{msg.name}</td>
-                <td className="p-3 border text-[#29166F] hover:text-white">{msg.email}</td>
+                <td className="p-3 border">{msg.email}</td>
                 <td className="p-3 border">{msg.subject}</td>
                 <td className="p-3 border ">{msg.message}</td>
               </tr>

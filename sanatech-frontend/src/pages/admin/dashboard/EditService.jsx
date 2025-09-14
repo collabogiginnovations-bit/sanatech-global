@@ -71,6 +71,7 @@ const EditService = () => {
                         <p className='font-semibold text-lg'>Add Service</p>
                     </div>
                 </button> */}
+                
 
             </div>
         </div>

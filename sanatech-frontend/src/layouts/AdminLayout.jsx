@@ -7,7 +7,7 @@ const AdminLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const hideSidebar =
-    location.pathname === "/admin" || location.pathname === "/admin/login";
+    location.pathname === "/admin/" || location.pathname === "/admin" || location.pathname === "/admin/login";
 
   return (
     <div >

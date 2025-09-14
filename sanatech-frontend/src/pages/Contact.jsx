@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Form from "../components/Morrisco/Form";
 import PageTitleCard from "../components/morrisco/PageTitleCard";
@@ -9,8 +8,9 @@ const Contact = () => {
   useScrollAnimation()
 
   const cycleImages = [
+    "images/companyImages/Solar Inverter Installation.jpg",
+    "images/companyImages/control Panels.jpg",
     "images/contact.png",
-    "images/fourEngs.jpg",
   ];
   return (
     <div>
