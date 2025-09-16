@@ -146,7 +146,7 @@ const Home = ({
                 )}
 
                 <div
-                    className="hero-clip relative z-10  md:bg-transparent h-fit bg-img items-center px-5 pt-20 flex flex-col md:flex-row justify-between bg-no-repeat bg-right-bottom bg-contain"
+                    className="hero-clip relative z-10  md:bg-transparent h-fit bg-img items-center px-5  pt-20 flex flex-col md:flex-row justify-between bg-no-repeat bg-right-bottom bg-contain"
                     style={{}}
                 >
                     <div className="w-full px-10 text-center md:w-1/2 md:text-start md:px-2">
@@ -198,7 +198,7 @@ const Home = ({
                 </h3>
                 <ClientCarousel />
             </div>
-            <div className=' flex flex-wrap justify-center min-h-96 py-5 mb-24'>
+            <div className=' flex flex-wrap justify-center min-h-96 md:px-15 py-5 mb-24'>
                 <h3 className="text-[#29166F] text-xl md:text-2xl font-bold">
                     Our Gallery
                 </h3>

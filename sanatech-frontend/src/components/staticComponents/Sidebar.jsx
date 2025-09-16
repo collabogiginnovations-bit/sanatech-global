@@ -29,7 +29,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-4 border-b">
         {!collapsed && <div className={` md:px-10 p-1 w-38 rounded-lg mt-1  `}>
-          <img src="/images/logo.png" alt="logo" className={`w-20  rounded-2xl bg-gray-200`} />
+          <img src="/images/logo.png" alt="logo" className={`w-20  rounded-full p-1 bg-gray-200`} />
         </div>}
         <button
           onClick={() => setCollapsed(!collapsed)}

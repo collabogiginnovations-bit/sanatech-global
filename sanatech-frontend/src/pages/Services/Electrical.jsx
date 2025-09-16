@@ -48,7 +48,7 @@ const Electrical = () => {
       imgSrc="/service/Trouble Shooting Electrical system.jpg"
       capabilities={items}
       link="#"
-      subHeading={items}
+      // subHeading={items}
       detailedCapabilities={detailedCapabilities}
     />
   );

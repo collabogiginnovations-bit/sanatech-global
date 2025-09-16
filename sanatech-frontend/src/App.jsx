@@ -21,6 +21,11 @@ import AdminLayout from './layouts/AdminLayout';
 import EditService from './pages/admin/dashboard/EditService';
 import AdminHome from './pages/admin/dashboard/AdminHome';
 import HideDashboard from './pages/admin/dashboard/HideDashboard';
+import AddServices from './pages/admin/dashboard/AddServices';
+import EditServicesLayout from './layouts/EditServicesLayout';
+import DeleteServicePage from './pages/admin/dashboard/DeleteServicePage';
+import IndividualServiceEditPage from './pages/admin/dashboard/IndividualServiceEditPage';
+import ServiceDetails from './pages/ServiceDetails';
 
 
 
@@ -37,10 +42,12 @@ function App() {
             <Route path='civil' element={<CivilWorks />} />
             <Route path='solar' element={<Solar />} />
             <Route path='communication' element={<Communication />} />
-            <Route path='Leasing&Ancillary' element={<Leasing />} />
+            <Route path='leasing-ancillary' element={<Leasing />} />
             <Route path='mechanical' element={<Mechanic />} />
             <Route path='electrical' element={<Electrical />} />
 
+            {/* 👇 NEW catch-all for DB services */}
+            <Route path=":slug" element={<ServiceDetails />} />
           </Route>
           <Route path='about' element={<About />} />
           <Route path='policies' element={<Policies />} />
@@ -58,7 +65,15 @@ function App() {
           <Route index element={<AdminLogin />} />
           <Route path="hidedashboard" element={<HideDashboard />}>
             <Route index element={<AdminHome />} />
-            <Route path="edit" element={<EditService />} />
+            <Route path="edit" element={<EditServicesLayout />}>
+              {/* Default route shows the services list */}
+              <Route index element={<EditService />} />
+
+              {/* Add, Edit, Delete Routes */}
+              <Route path="add" element={<AddServices />} />
+              <Route path="edit/:id" element={<IndividualServiceEditPage />} />
+              <Route path="delete/:id" element={<DeleteServicePage />} />
+            </Route>
           </Route>
         </Route>
 

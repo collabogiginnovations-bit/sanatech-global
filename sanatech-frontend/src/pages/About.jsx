@@ -24,7 +24,7 @@ const About = () => {
       <div className='bg-amber-800'>
         <PageTitleCard cycleImages={cycleImages} imageName="AboutTitleCard.png" cardText="Registraon No.: C981243 | TIN: 14381774-0001" cardTitle="About SANATECH" textColor="text-white" />
       </div>
-      <div className='flex justify-center section'>
+      <div className='flex justify-center section md:px-15' >
         <div className='my-24 text-center px-10 sm:px-10 md:px-16 lg:px-32'>
           <p className={`align-middle  transition-all duration-500 ease-in-out overflow-hidden mb-3 
         ${collaps ? 'max-h-[2000px]' : 'max-h-40'}`}>
@@ -50,8 +50,8 @@ const About = () => {
         </div>
       </div>
       <div className='min-h-80 mb-24 px-4 section text-start md:text-start'>
-        <div className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  pl-4 min-h-80 gap-3 rounded-xl  justify-center flex-col bg-[#29166F]`} >
-          <div className='pr-14  flex flex-col justify-center'>
+        <div className={`grid grid-cols-1 px-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  pl-4 min-h-80 gap-3 rounded-xl  justify-center flex-col bg-[#29166F]`} >
+          <div className='pr-14 ml-5 flex flex-col justify-center'>
             <h1 className='text-3xl font-bold text-white mb-5'>Our Vision</h1>
             <p className='text-gray-100'>Our vision is to be the world’s premier engineering,
               construction, project management organization by
@@ -71,7 +71,7 @@ const About = () => {
       </div>
 
       <div className='min-h-80 mb-24 px-4 section'>
-        <div className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  pl-4 min-h-80 gap-3 rounded-xl flex justify-center flex-col `} >
+        <div className={`grid grid-cols-1 px-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  pl-4 min-h-80 gap-3 rounded-xl flex justify-center flex-col `} >
           <div className='h-60 sm:h-72 md:h-80 lg:h-full'>
             <div className='m-2 h-56 sm:h-64 md:h-72 lg:max-h-full rounded-xl bg-transparent lg:m-5 ' style={{ backgroundImage: "url('images/mission.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >
 
@@ -80,7 +80,7 @@ const About = () => {
 
           </div>
 
-          <div className=' flex flex-col justify-center text-start md:text-start md:pl-10'>
+          <div className=' flex flex-col justify-center pr-5 text-start md:text-start md:pl-10'>
             <h1 className='text-3xl  font-bold text-[#29166F] mb-5'>Our Mission</h1>
             <p>We regard our work ethics in highest nature, to be productive and pro-active in our
               projects to be accountable for all work undertaken
@@ -121,7 +121,7 @@ const About = () => {
 
         </div>
       </div>
-      <div className='min-h-80 mb-24 px-4 section'>
+      <div className='min-h-80 mb-24 px-5 section'>
         <div className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  pl-4 min-h-80 gap-3 rounded-xl flex justify-center flex-col `} >
           <div className='h-60 sm:h-72 md:h-80 lg:h-full'>
             <div className='m-2 h-56 sm:h-64 md:h-72 lg:max-h-full rounded-xl bg-transparent lg:m-5 ' style={{ backgroundImage: "url('images/office.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >
@@ -131,7 +131,7 @@ const About = () => {
 
           </div>
 
-          <div className=' flex flex-col justify-center text-start md:text-start md:pl-10'>
+          <div className=' flex flex-col pr-5 justify-center text-start md:text-start md:pl-10'>
             <h1 className='text-3xl  font-bold text-[#29166F] mb-5'>Corporate Office</h1>
             <p>Suite 25, Second Floor Hilltop Plaza,
               Trans Woji Road By Elitor juncon,

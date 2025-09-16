@@ -1,9 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import FormButton from "./FormButton";
+import base_url from "./Base_url";
+
+
+console.log(base_url);
 
 const Form = () => {
-  const BASE_URL = "http://localhost:3001";
+  base_url
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -33,7 +37,7 @@ const Form = () => {
 
     const sendMessage = async () => {
       try {
-        const respones = await fetch(`${BASE_URL}/send-message`, {
+        const respones = await fetch(`${base_url}/send-message`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

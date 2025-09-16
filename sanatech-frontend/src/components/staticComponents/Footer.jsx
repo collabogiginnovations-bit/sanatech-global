@@ -4,11 +4,11 @@ import { FaArrowRight, FaAt, FaPhone, FaRegEnvelope } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className="bg-[rgb(15,8,43)]">
+        <footer className="bg-[rgb(15,8,43)] px-3 md:px-15">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  p-5  text-white">
                 <div className="col-span-2 flex flex-col justify-between pr-20 pb-4 ">
                     <div className="mb-3 ">
-                        <div className="bg-gray-300 w-24 p-2 rounded-full h-20 flex justify-between items-center">
+                        <div className="bg-gray-300 w-20 p-2 rounded-full h-20 flex justify-between items-center">
                             <img
                                 src="/images/logo.png"
                                 alt="logo"

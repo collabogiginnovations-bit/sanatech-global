@@ -18,7 +18,7 @@ const Contact = () => {
         <PageTitleCard cycleImages={cycleImages} imageName="contact.png" cardTitle="Contact Us" />
 
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2  my-24 section ">
+      <div className=" grid grid-cols-1 md:grid-cols-2  my-24 px-15 section ">
         <div className="pl-5 pr-5 mb-6 justify-center text-center md:text-start lg:pr-56 lg:mb-0 flex flex-col pt-5 ">
 
           <div className="mb-6">

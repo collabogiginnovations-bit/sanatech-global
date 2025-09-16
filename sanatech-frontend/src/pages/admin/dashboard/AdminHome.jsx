@@ -1,86 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import base_url from "../../../components/morrisco/Base_url";
 
 const AdminHome = () => {
-  const messages = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      subject: "Service Inquiry",
-      message: "I would like to know more about your solar installation service.",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      subject: "Job Application",
-      message: "I am interested in applying for an engineering role at Sanatech.",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 4,
-      name: "John Doe",
-      email: "john@example.com",
-      subject: "Service Inquiry",
-      message: "I would like to know more about your solar installation service.",
-    },
-    {
-      id: 5,
-      name: "John Doe",
-      email: "john@example.com",
-      subject: "Service Inquiry",
-      message: "I would like to know more about your solar installation service.",
-    },
-    {
-      id: 6,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 7,
-      name: "Michael Johnson",
-      email: "michael@example.com",
-      subject: "Support Needed",
-      message: "I’m having trouble accessing my account. Can you assist?",
-    },
-    {
-      id: 8,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      subject: "Job Application",
-      message: "I am interested in applying for an engineering role at Sanatech.",
-    },
-    {
-      id: 9,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      subject: "Job Application",
-      message: "I am interested in applying for an engineering role at Sanatech.",
-    },
-    {
-      id: 10,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      subject: "Job Application",
-      message: "I am interested in applying for an engineering role at Sanatech.",
-    },
-    {
-      id: 11,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      subject: "Job Application",
-      message: "I am interested in applying for an engineering role at Sanatech.",
-    },
+  const [messages, setmessage] = useState([])
 
-  ];
+
+
+  console.log("the array of all messages are ", messages);
+  
+
+  useEffect(()=>{
+    const fetchMessages = async ()=>{
+      const request = await fetch(`${base_url}/fetch-messages`, {
+        method: "GET",
+        headers:{
+          "content-Type":"application/json"
+        }
+      });
+
+      const response = await request.json();
+      
+      if (response.message ==="message available") {
+        const incomingMessages = response.messages
+        console.log("the incoming message variable value is", incomingMessages);
+        
+        setmessage(incomingMessages)
+        console.log("the fetch message respones ", messages);
+      }
+      
+
+    };
+
+    fetchMessages()
+  }, [])
 
   return (
     <div className="p-6 mt-20">
@@ -98,7 +50,7 @@ const AdminHome = () => {
           </thead>
           <tbody>
             {messages.map((msg) => (
-              <tr key={msg.id} className="hover:bg-[#29166F] hover:text-white transition-colors duration-100 ease-in">
+              <tr key={msg.id} className="hover:bg-[#29166F] hover:text-white ">
                 <td className="p-3 border font-medium">{msg.name}</td>
                 <td className="p-3 border">{msg.email}</td>
                 <td className="p-3 border">{msg.subject}</td>

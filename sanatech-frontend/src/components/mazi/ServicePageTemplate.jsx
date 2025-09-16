@@ -71,7 +71,6 @@ const ServiceTemplate = ({
               })}
 
             </ul>
-            <p className={`${service === "Petroleum Products"?"flex":"hidden"}`}>ECPROD Nig Ltd is involved in the sourcing, supply, and distribution of high-quality petroleum products,  catering to the energy needs of various industries and sectors. We are committed to reliable and efficient  product delivery.</p>
 
           </div>
 
@@ -82,10 +81,7 @@ const ServiceTemplate = ({
 
         <section className="flex flex-col items-center px-5 section">
           <div className="w-fit">
-            <div className={`mb-3 flex-col ${service === "Skill Training" ? "flex" : "hidden"}`}>
-              <h2 className={` text-3xl mb-3 text-[#29166F]`}>Our Approach to Skills Training</h2>
-              <p>We adopt a holistic and practical approach to skills training, focusing on:</p>
-            </div>
+           
             <ul className={`flex flex-col gap-5 max-w-[600px] pl-5 transition-all duration-500 ease-in-out overflow-hidden list-disc ${collapse ? "min-h-screen" : "max-h-screen"}`}>
               {capabilities.map((item, index) => (
                 <li key={index}><p className="font-semibold inline text-xl">{item.subHeading}</p>

@@ -17,7 +17,7 @@ const Policies = () => {
       <div className='bg-[#29166F]'>
         <PageTitleCard cardTitle="Our Policies" cycleImages={cycleImages} />
       </div>
-      <div className='bg-gray-100'>
+      <div className='bg-gray-100 md:px-15 '>
         <div className='mt-24'>
           <ul className='flex gap-4  py-5 px-5 justify-center items-center  text-sm flex-wrap'>
             <a href="#corporate" className=' font-semibold text-[#29166F] py-2 px-4 rounded-3xl transition-colors duration-500 hover:bg-[#170947] hover:text-white  '><li>Corporate Policy</li></a>
@@ -31,7 +31,7 @@ const Policies = () => {
           <div className='mt-24 text-center px-10 sm:px-10 md:px-16 lg:px-32 section' >
             <h1 className='text-3xl font-bold text-[#29166F] mb-5'>Corporate Policy</h1>
 
-            <p className='text-[#3d3d3d] text-start md:text-center'>
+            <p className='text-[#3d3d3d] text-center md:text-center'>
               Our policy surpasses economic value creation to
               acknowledge the importance of social and
               environmental capital and value creation setting out
@@ -46,7 +46,7 @@ const Policies = () => {
           <div className='mt-24 text-center px-10 sm:px-10 md:px-16 lg:px-32 section'>
             <h1 className='text-3xl font-bold text-[#29166F] mb-5'>Health and Safety Policy</h1>
 
-            <p className='text-[#3d3d3d]  text-start md:text-center'>
+            <p className='text-[#3d3d3d]  text-center'>
               Sanatech Global, operating in infrastructure
               development field, shall provide and maintain high
               standard of health & safety for all its employees and
@@ -64,7 +64,7 @@ const Policies = () => {
           <div className='mt-24 text-center px-10 sm:px-10 md:px-16 lg:px-32 section' >
             <h1 className='text-3xl font-bold text-[#29166F] mb-5'>Quality Assurance Policy</h1>
 
-            <p className='text-[#3d3d3d]  text-start md:text-center'>
+            <p className='text-[#3d3d3d]  text-center'>
               The policy of Sanatech Global is to empower all employees to create, implement
               and improve our services to meet and exceed external and internal customer
               expectaons.Sanatech Global pledges to train all personnel in Connnuous
@@ -85,7 +85,7 @@ const Policies = () => {
               Sanatech Global recognizes that in carrying out its acvie it has a responsibility
               to customers, employees, and the general public to minimize environmental
               impacts. The environmental policy of Sanatech Global is to:
-              <ul className='list-disc flex flex-col items-start mt-5'>
+              <ul className='list-disc flex flex-col items-start mt-5 text-start pl-5'>
                 <li>Ensure compliance with all applicable legal and other requirements, which relate
                   to its environmental aspects. </li>
                 <li>Promote environmental awareness and commitment to the policy amongst all

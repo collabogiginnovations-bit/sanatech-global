@@ -37,7 +37,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className={` md:px-10 p-1 w-38 rounded-lg mt-1  `}>
-        <img src="/images/logo.png" alt="logo" className={`w-20  rounded-2xl ${isScrolled?'':"bg-gray-200"}`} />
+        <img src="/images/logo.png" alt="logo" className={`w-20  rounded-full ${isScrolled?'':"bg-gray-200 p-1"}`} />
       </div>
 
       <div className="flex justify-end items-center px-5 sm:flex md:hidden lg:hidden xl:hidden">
@@ -60,7 +60,7 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/"
-              className={`${isScrolled?"text-black":"text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
+              className={`${isScrolled?"text-black":"text-black md:text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
             >
               Home
             </NavLink>
@@ -68,7 +68,7 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/services"
-              className={`${isScrolled?"text-black":"text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
+              className={`${isScrolled?"text-black":"text-black md:text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
             >
               Services
             </NavLink>
@@ -76,7 +76,7 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/about"
-              className={`${isScrolled?"text-black":"text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
+              className={`${isScrolled?"text-black":"text-black md:text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
             >
               About Us
             </NavLink>
@@ -84,7 +84,7 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/policies"
-              className={`${isScrolled?"text-black":"text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
+              className={`${isScrolled?"text-black":"text-black md:text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
             >
               Policies
             </NavLink>
@@ -92,7 +92,7 @@ export default function Navbar() {
           <li>
             <NavLink
               to="/contact"
-              className={`${isScrolled?"text-black":"text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
+              className={`${isScrolled?"text-black":"text-black md:text-white hover:text-blue-800"} px-4 py-2 rounded-3xl transition-colors duration-300 ease-in lg:hover:bg-blue-200`}
             >
               Contact Us
             </NavLink>
